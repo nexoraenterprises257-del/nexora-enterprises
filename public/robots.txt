@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nexoraenterprise.in/sitemap.xml
+Sitemap: https://nexoraenterprises257-del.github.io/nexora-enterprises/sitemap.xml

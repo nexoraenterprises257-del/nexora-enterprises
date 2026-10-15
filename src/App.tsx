@@ -23,6 +23,7 @@ import { Terms } from './components/pages/Terms';
 import { Contact } from './components/sections/Contact';
 import { ProductPage } from './components/pages/ProductPage';
 import { productData } from './data/products';
+import { SEO } from './components/common/SEO';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -106,6 +107,7 @@ export default function App() {
 
   return (
     <BrowserRouter basename={basename}>
+      <SEO />
       <ScrollToTop />
       <div className="relative w-full bg-white min-h-screen text-slate-900 selection:bg-[#2563EB]/15 selection:text-[#1E3A8A]">
         <Navbar />
