@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Activity, MessagesSquare, MessageSquare, Phone, Sparkles, Copy, Check, Wifi, Battery, Volume2, PhoneCall, PhoneOff, MoreVertical, Lock, Send, MapPin, ChevronLeft, MoreHorizontal, Image as ImageIcon, Mic, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MetaBadge, IsoBadge, Soc2Badge, TraiBadge } from '../ui/TrustBadges';
+import { getAssetUrl } from '../../lib/utils';
 
 type ChannelType = 'whatsapp' | 'sms' | 'rcs' | 'voice';
 
@@ -202,7 +203,7 @@ export function Hero() {
                             <div className="flex items-center gap-2">
                               <span className="text-xs">‹</span>
                               <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs shrink-0 overflow-hidden">
-                                <img src="/logo.png" alt="Nexora" className="w-4 h-auto" />
+                                <img src={getAssetUrl('/logo.png')} alt="Nexora" className="w-4 h-auto" />
                               </div>
                               <div className="overflow-hidden">
                                 <div className="flex items-center gap-1 leading-none">

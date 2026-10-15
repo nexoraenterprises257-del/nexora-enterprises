@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../../lib/utils';
+
 interface BrandLogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -24,7 +26,7 @@ export function BrandLogo({ className = '', size = 'md', showSubtitle = true, th
     <div className={`flex items-center gap-3 select-none group ${className}`}>
       <div className="relative shrink-0 flex items-center justify-center">
         <img 
-          src="/logo.png" 
+          src={getAssetUrl('/logo.png')} 
           alt="Nexora Enterprise" 
           className={`${imgSizes[size]} object-contain filter drop-shadow-[0_4px_12px_rgba(37,99,235,0.15)] group-hover:scale-105 transition-transform duration-300`}
         />

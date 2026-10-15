@@ -1,4 +1,5 @@
 import { ShieldCheck, Activity } from 'lucide-react';
+import { getAssetUrl } from '../../lib/utils';
 
 const brands = [
   { name: 'PhonePe', logo: '/brands/phonepe.png', height: 'h-6 sm:h-7' },
@@ -60,7 +61,7 @@ export function TrustedBy() {
               className="flex items-center justify-center px-6 py-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#2563EB]/40 hover:shadow-md transition-all group shrink-0 select-none min-w-[140px] h-16 cursor-default"
             >
               <img 
-                src={brand.logo} 
+                src={getAssetUrl(brand.logo)} 
                 alt={brand.name} 
                 className={`${brand.height} w-auto object-contain filter grayscale group-hover:grayscale-0 opacity-75 group-hover:opacity-100 transition-all duration-300`} 
               />
