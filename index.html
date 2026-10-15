@@ -18,6 +18,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
     <script>
       (function() {
+        var isSub = location.pathname.startsWith('/nexora-enterprises') || (location.hostname.endsWith('github.io') && location.pathname !== '/');
+        var baseHref = isSub ? '/nexora-enterprises/' : '/';
+        document.write('<base href="' + baseHref + '">');
+      })();
+    </script>
+    <script>
+      (function() {
         const isSub = location.pathname.startsWith('/nexora-enterprises');
         const prefix = isSub ? '/nexora-enterprises/' : '/';
         document.querySelectorAll('link[rel*="icon"]').forEach(function(el) {
