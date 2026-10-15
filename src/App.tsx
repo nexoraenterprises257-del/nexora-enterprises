@@ -70,8 +70,12 @@ export default function App() {
     };
   }, []);
 
+  const basename = typeof window !== 'undefined' && window.location.pathname.startsWith('/nexora-enterprises')
+    ? '/nexora-enterprises'
+    : '/';
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <ScrollToTop />
       <div className="relative w-full bg-white min-h-screen text-slate-900 selection:bg-[#2563EB]/15 selection:text-[#1E3A8A]">
         <Navbar />
