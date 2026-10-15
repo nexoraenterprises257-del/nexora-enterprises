@@ -63,7 +63,7 @@ export function TrustedBy() {
               <img 
                 src={getAssetUrl(brand.logo)} 
                 alt={brand.name} 
-                className={`${brand.height} w-auto object-contain filter grayscale group-hover:grayscale-0 opacity-75 group-hover:opacity-100 transition-all duration-300`} 
+                className={`${brand.height} w-auto max-w-[130px] object-contain transition-all duration-300 group-hover:scale-105`} 
               />
             </div>
           ))}
