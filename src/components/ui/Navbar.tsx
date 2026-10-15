@@ -23,9 +23,22 @@ export function Navbar() {
     setIsProductsOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const products = [
     {
       name: 'WhatsApp Business API',
+      shortName: 'WhatsApp API',
+      tag: 'Meta BSP Partner',
       href: '/products/whatsapp',
       icon: MessagesSquare,
       desc: 'Official Meta BSP • Catalogs, chatbots & priority routing',
@@ -34,6 +47,8 @@ export function Navbar() {
     },
     {
       name: 'Bulk SMS (TRAI DLT)',
+      shortName: 'Bulk SMS',
+      tag: 'TRAI DLT Routes',
       href: '/products/bulk-sms',
       icon: MessageSquare,
       desc: 'Sub-400ms high-speed OTP & transaction routes across Jio, Airtel & Vi',
@@ -42,6 +57,8 @@ export function Navbar() {
     },
     {
       name: 'RCS Business Messaging',
+      shortName: 'RCS Messaging',
+      tag: 'Rich Verified Media',
       href: '/products/rcs',
       icon: Sparkles,
       desc: 'Verified sender cards & interactive dynamic media carousels',
@@ -50,6 +67,8 @@ export function Navbar() {
     },
     {
       name: 'Voice Solutions & OBD',
+      shortName: 'Voice & OBD',
+      tag: 'Outbound Dialer',
       href: '/products/voice',
       icon: Phone,
       desc: 'Pan-India outbound dialer, automated voice broadcast & call masking',
@@ -58,6 +77,8 @@ export function Navbar() {
     },
     {
       name: 'Smart IVR Systems',
+      shortName: 'Smart IVR',
+      tag: 'Smart Telephony',
       href: '/products/ivr',
       icon: Bot,
       desc: 'Multi-lingual automated telephony & intent routing with agent forwarding',
@@ -66,6 +87,8 @@ export function Navbar() {
     },
     {
       name: 'SMPP Carrier Gateway',
+      shortName: 'SMPP Gateway',
+      tag: 'Direct Telco Binds',
       href: '/products/smpp',
       icon: Code,
       desc: 'Direct carrier binds with Jio, Airtel, Vi & BSNL for massive throughput',
@@ -77,9 +100,9 @@ export function Navbar() {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
+        isScrolled || isMobileMenuOpen 
           ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.04)] py-4' 
-          : 'bg-transparent py-6'
+          : 'bg-transparent py-4 lg:py-6'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between">
@@ -190,79 +213,95 @@ export function Navbar() {
 
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Full-Screen Overlay below Header) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-slate-200 px-5 py-6 overflow-hidden flex flex-col gap-4 shadow-2xl max-h-[85vh] overflow-y-auto"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="lg:hidden absolute top-full left-0 w-full h-[calc(100dvh-100%)] bg-white border-t border-slate-100 flex flex-col justify-between overflow-y-auto px-5 py-6 shadow-2xl z-50"
           >
-            <div className="flex flex-col gap-1 pb-3 border-b border-slate-100">
-              <Link 
-                to="/about" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-between"
-              >
-                <span>About Us</span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-              </Link>
-              <Link 
-                to="/developers" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-between"
-              >
-                <span>Developers & APIs</span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-              </Link>
-            </div>
+            <div className="flex flex-col gap-5 flex-1">
+              {/* Primary Nav Links */}
+              <div className="grid grid-cols-2 gap-2 pb-4 border-b border-slate-100">
+                <Link 
+                  to="/about" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/60 font-bold text-sm text-slate-800 hover:bg-slate-100 active:scale-[0.98] transition-all"
+                >
+                  <span>About Us</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                </Link>
+                <Link 
+                  to="/developers" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/60 font-bold text-sm text-slate-800 hover:bg-slate-100 active:scale-[0.98] transition-all"
+                >
+                  <span>Developers</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                </Link>
+              </div>
 
-            <div className="flex flex-col gap-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3">Products</span>
-              <div className="grid grid-cols-1 gap-1.5">
-                {products.map((p) => {
-                  const Icon = p.icon;
-                  return (
-                    <Link 
-                      key={p.name} 
-                      to={p.href} 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors group/item"
-                    >
-                      <div className={`w-8 h-8 rounded-lg ${p.bg} flex items-center justify-center shrink-0`}>
-                        <Icon className={`w-4 h-4 ${p.color}`} />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#2563EB] transition-colors">
-                          {p.name}
+              {/* Products Section Header */}
+              <div className="flex flex-col gap-2.5">
+                <div className="flex items-center justify-between px-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Products & Solutions</span>
+                  <span className="text-[10px] font-bold text-[#2563EB] bg-[#2563EB]/10 px-2.5 py-0.5 rounded-full">6 Channels</span>
+                </div>
+
+                {/* 2-Column Product Grid */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {products.map((p) => {
+                    const Icon = p.icon;
+                    return (
+                      <Link 
+                        key={p.name} 
+                        to={p.href} 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex flex-col p-3 rounded-xl border border-slate-200/80 bg-white hover:border-[#2563EB]/40 hover:bg-blue-50/20 active:scale-[0.98] transition-all shadow-sm group/item"
+                      >
+                        <div className={`w-8 h-8 rounded-lg ${p.bg} flex items-center justify-center shrink-0 mb-2`}>
+                          <Icon className={`w-4 h-4 ${p.color}`} />
+                        </div>
+                        <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#2563EB] transition-colors leading-tight">
+                          {p.shortName || p.name}
                         </span>
-                        <span className="text-[10px] text-slate-500 line-clamp-1">
-                          {p.desc}
+                        <span className="text-[10px] text-slate-400 font-medium mt-0.5 line-clamp-1">
+                          {p.tag}
                         </span>
-                      </div>
-                    </Link>
-                  );
-                })}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            <div className="pt-2 flex flex-col gap-2 border-t border-slate-100">
+            {/* Bottom Actions & Trust */}
+            <div className="pt-5 pb-3 flex flex-col gap-2.5 border-t border-slate-100 mt-4">
               <Link 
                 to="/contact" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary w-full text-center text-xs py-3 rounded-xl justify-center"
+                className="btn-primary w-full text-center text-xs py-3.5 rounded-xl justify-center font-bold shadow-lg shadow-[#2563EB]/20 active:scale-[0.98] transition-all"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+              
               <a 
                 href="tel:+918175950586"
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 hover:bg-slate-100 active:scale-[0.98] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>Call +91 81759 50586</span>
               </a>
+
+              <div className="flex items-center justify-center gap-2 text-[10px] font-semibold text-slate-400 pt-1 text-center">
+                <span>🇮🇳 Direct Carrier Mesh</span>
+                <span>•</span>
+                <span>TRAI DLT Compliant</span>
+              </div>
             </div>
           </motion.div>
         )}
