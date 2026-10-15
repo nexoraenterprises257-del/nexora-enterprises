@@ -26,9 +26,30 @@ import { productData } from './data/products';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // 1. Force native browser scroll to 0,0 immediately
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // 2. Force Lenis to reset virtual scroll state immediately
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true, force: true });
+    }
+
+    // 3. Double-check after frame rendering for dynamic content
+    const frameId = requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      if ((window as any).__lenis) {
+        (window as any).__lenis.scrollTo(0, { immediate: true, force: true });
+      }
+    });
+
+    return () => cancelAnimationFrame(frameId);
   }, [pathname]);
+
   return null;
 }
 
@@ -58,15 +79,20 @@ export default function App() {
       touchMultiplier: 2,
     });
 
+    (window as any).__lenis = lenis;
+
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      (window as any).__lenis = null;
     };
   }, []);
 
