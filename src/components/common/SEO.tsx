@@ -74,7 +74,8 @@ export function SEO() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const data = SEO_DATA[pathname] || SEO_DATA['/'];
+    const cleanPath = pathname.replace(/^\/nexora-enterprises/, '') || '/';
+    const data = SEO_DATA[cleanPath] || SEO_DATA['/'];
 
     // 1. Update Document Title
     document.title = data.title;
@@ -112,7 +113,7 @@ export function SEO() {
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
-    canonical.href = window.location.origin + pathname;
+    canonical.href = 'https://nexoraenterprise.in' + (cleanPath === '/' ? '/' : cleanPath);
   }, [pathname]);
 
   return null;
