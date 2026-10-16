@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nexoracpass.in/sitemap.xml
+Sitemap: https://nexoracpaas.in/sitemap.xml

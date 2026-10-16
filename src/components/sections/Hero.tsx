@@ -353,7 +353,7 @@ export function Hero() {
                             {/* Transaction Debit Alert */}
                             <div className="bg-white rounded-xl rounded-tl-xs p-2 text-slate-800 text-[9.5px] leading-snug border border-slate-200 max-w-[235px] shadow-2xs">
                               <p className="font-normal">
-                                NX-NEXORA: A/c *4892 debited for INR 14,500 on 14-Oct. Avail Bal: INR 1,84,200. Info: nexoracpass.in
+                                NX-NEXORA: A/c *4892 debited for INR 14,500 on 14-Oct. Avail Bal: INR 1,84,200. Info: nexoracpaas.in
                               </p>
                               <span className="text-[7.5px] text-slate-400 block mt-1">12:43 PM • Delivered</span>
                             </div>

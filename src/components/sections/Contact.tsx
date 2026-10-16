@@ -92,7 +92,7 @@ export function Contact() {
                   <div>
                     <h4 className="text-xs uppercase tracking-wider text-slate-500 mb-0.5 font-bold">Enterprise Sales & Support</h4>
                     <p className="text-[#0A0F1C] font-bold text-base">
-                      <a href="mailto:info@nexoracpass.in" className="hover:text-[#2563EB] transition-colors break-all">info@nexoracpass.in</a>
+                      <a href="mailto:info@nexoracpaas.in" className="hover:text-[#2563EB] transition-colors break-all">info@nexoracpaas.in</a>
                     </p>
                   </div>
                 </div>

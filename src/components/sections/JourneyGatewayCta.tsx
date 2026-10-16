@@ -88,8 +88,8 @@ export function JourneyGatewayCta() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <a href="mailto:info@nexoracpass.in" className="text-base font-bold text-white hover:text-[#3B82F6] transition-colors font-mono break-all">
-                    info@nexoracpass.in
+                  <a href="mailto:info@nexoracpaas.in" className="text-base font-bold text-white hover:text-[#3B82F6] transition-colors font-mono break-all">
+                    info@nexoracpaas.in
                   </a>
                   <span className="text-xs text-slate-400 block mt-0.5">SLA Response: Under 2 Hours</span>
                 </div>
