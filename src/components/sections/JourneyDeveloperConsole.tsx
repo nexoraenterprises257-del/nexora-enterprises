@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Terminal, Copy, Check, Play, Activity, ShieldCheck, Zap } from 'lucide-react';
 
 const snippets = {
-  curl: `curl -X POST https://api.nexoraenterprise.in/v2/sms/dispatch \\
+  curl: `curl -X POST https://api.nexoracpass.in/v2/sms/dispatch \\
   -H "Authorization: Bearer nx_live_sec_9941a87b" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -134,7 +134,7 @@ export function JourneyDeveloperConsole() {
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
               </div>
               <span className="text-xs font-mono text-slate-400">
-                api.nexoraenterprise.in — v3.8 (Indian Telecom Gateway)
+                api.nexoracpass.in — v3.8 (Indian Telecom Gateway)
               </span>
             </div>
 

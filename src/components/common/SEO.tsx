@@ -55,7 +55,7 @@ const SEO_DATA: Record<string, RouteSEO> = {
   },
   '/contact': {
     title: "Contact Enterprise Sales & Telecom Support | Nexora",
-    description: "Speak directly with our enterprise telecom engineers in India. Call +91 81759 50586 or email info@nexoraenterprise.in for custom routing and SLA agreements.",
+    description: "Speak directly with our enterprise telecom engineers in India. Call +91 81759 50586 or email info@nexoracpass.in for custom routing and SLA agreements.",
     keywords: "contact nexora, enterprise telecom support, cpaas sales india, nexora phone number"
   },
   '/privacy': {
@@ -113,7 +113,7 @@ export function SEO() {
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
-    canonical.href = 'https://nexoraenterprise.in' + (cleanPath === '/' ? '/' : cleanPath);
+    canonical.href = 'https://nexoracpass.in' + (cleanPath === '/' ? '/' : cleanPath);
   }, [pathname]);
 
   return null;

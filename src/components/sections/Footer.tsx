@@ -96,9 +96,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@nexoraenterprise.in" className="text-slate-600 hover:text-[#2563EB] font-medium transition-colors flex items-center gap-2">
+                <a href="mailto:info@nexoracpass.in" className="text-slate-600 hover:text-[#2563EB] font-medium transition-colors flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-[#0284C7] shrink-0" />
-                  <span>info@nexoraenterprise.in</span>
+                  <span>info@nexoracpass.in</span>
                 </a>
               </li>
               <li className="text-slate-600 font-medium flex items-center gap-2">

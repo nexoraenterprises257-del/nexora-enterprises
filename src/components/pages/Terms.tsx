@@ -64,7 +64,7 @@ export function Terms() {
             </p>
             <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">
               <strong>Nexora Enterprise Legal Operations</strong><br />
-              Email: info@nexoraenterprise.in<br />
+              Email: info@nexoracpass.in<br />
               Phone: +91 81759 50586<br />
               Registered Office: Shop No. 44 Oshiwara Police Station Rd, Mhada Colony, Andheri West, Mumbai, Maharashtra 400102
             </div>

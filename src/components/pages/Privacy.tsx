@@ -64,7 +64,7 @@ export function Privacy() {
           <section className="fc-card p-8 md:p-10">
             <h2 className="text-2xl font-black text-[#0A0F1C] mb-4">Contact Privacy Team</h2>
             <p className="text-slate-600 leading-relaxed">
-              If you have any questions or data principal requests regarding this policy, please reach out to our Mumbai data protection officer at <a href="mailto:info@nexoraenterprise.in" className="text-[#2563EB] hover:underline font-bold">info@nexoraenterprise.in</a> or write to:
+              If you have any questions or data principal requests regarding this policy, please reach out to our Mumbai data protection officer at <a href="mailto:info@nexoracpass.in" className="text-[#2563EB] hover:underline font-bold">info@nexoracpass.in</a> or write to:
             </p>
             <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">
               <strong>Nexora Enterprise Legal & Compliance Desk</strong><br />

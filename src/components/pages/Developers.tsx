@@ -105,7 +105,7 @@ export function Developers() {
   const [activeTab, setActiveTab] = useState<'curl' | 'node' | 'python'>('curl');
 
   const codeSnippets = {
-    curl: `curl -X POST https://api.nexoraenterprise.in/v2/sms/dispatch \\
+    curl: `curl -X POST https://api.nexoracpass.in/v2/sms/dispatch \\
   -H "Authorization: Bearer nx_live_sec_9941a87b" \\
   -H "Content-Type: application/json" \\
   -d '{
