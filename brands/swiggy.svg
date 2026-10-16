@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <!-- Swiggy Icon -->
+  <g transform="translate(6, 4)">
+    <rect width="32" height="32" rx="10" fill="#FC8019"/>
+    <!-- Stylized S Map Marker -->
+    <path d="M16 7C11.5 7 8 10.5 8 15C8 20.8 16 27 16 27C16 27 24 20.8 24 15C24 10.5 20.5 7 16 7ZM16 18C14.3 18 13 16.7 13 15C13 13.3 14.3 12 16 12C17.7 12 19 13.3 19 15C19 16.7 17.7 18 16 18Z" fill="#FFFFFF"/>
+  </g>
+  <!-- Swiggy Text -->
+  <text x="46" y="27" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" fill="#FC8019" letter-spacing="0.08em">
+    SWIGGY
+  </text>
+</svg>
