@@ -250,7 +250,7 @@ export function Contact() {
                       />
                       <label htmlFor="marketingConsent" className="text-xs sm:text-[13px] text-slate-600 leading-relaxed cursor-pointer select-none">
                         <span className="text-red-500 font-bold mr-1">*</span>
-                        I agree to receive marketing communications, updates, and promotional offers from Immense Air via Email, SMS, WhatsApp, and Voice Calls. I understand that I can unsubscribe at any time.
+                        I agree to receive marketing communications, updates, and promotional offers from Nexora Enterprises via Email, SMS, WhatsApp, and Voice Calls. I understand that I can unsubscribe at any time.
                       </label>
                     </div>
 
